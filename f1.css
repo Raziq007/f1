@@ -1,0 +1,150 @@
+/* --- Core Reset & Smooth Scrolling --- */
+html {
+    scroll-behavior: smooth;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #15151e;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    overflow-y: auto;
+}
+
+/* --- Centered Page Content Column --- */
+.scroll-container {
+    width: 100%;
+    max-width: 1920px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.8);
+    animation: fadeInPage 0.4s ease-out;
+}
+
+/* --- Block Strips --- */
+.page-section {
+    position: relative;
+    width: 100%;
+}
+
+.page-section img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* --- Sticky Header Configuration --- */
+.sticky-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background-color: #15151e;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.home-button {
+    display: block;
+    width: 100%;
+    cursor: pointer;
+    transition: opacity 0.2s ease;
+}
+
+.home-button:hover {
+    opacity: 0.9;
+}
+
+/* --- Hub Grid Overlay Layout (From Homepage) --- */
+.team-footer-section {
+    position: relative;
+}
+
+.teams-interaction-grid {
+    position: absolute;
+    top: 17.6%;   
+    left: 7.7%;     
+    width: 49.9%;   
+    height: 59.6%;  
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); 
+    grid-template-rows: repeat(5, 1fr);    
+    gap: 4px 8px;   
+}
+
+.team-link {
+    display: block;
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+    position: relative;
+    border-radius: 6px; 
+    overflow: visible;
+    transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hover-card {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: fill; 
+    border-radius: 6px;
+    transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s ease;
+    pointer-events: none;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+    z-index: 5;
+}
+
+.team-link:hover {
+    cursor: pointer;
+    z-index: 20; 
+}
+
+.team-link:hover .hover-card {
+    transform: scale(1.05); 
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5), 0 0 0 2px #e10600; 
+}
+
+/* ==========================================================================
+   NEW: Dedicated Team Page Utilities
+   ========================================================================== */
+
+/* 
+   Applies a fallback McLaren papaya-orange gradient background 
+   to the page behind your transparent image assets.
+*/
+.mclaren-body-bg {
+    background: #ff8700;
+    background: linear-gradient(180deg, #15151e 0%, #ff8700 30%, #e10600 100%);
+}
+
+/* Seamless blend layer configuration */
+.mclaren-body-bg .scroll-container {
+    background: transparent;
+    box-shadow: 0 0 80px rgba(0, 0, 0, 0.9);
+}
+
+@keyframes fadeInPage {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* 
+   Applies a sleek Aston Martin racing green background 
+   to the page behind your layout assets.
+*/
+.aston-body-bg {
+    background-color: #00665e;
+}
+
+.aston-body-bg .scroll-container {
+    background: transparent;
+    box-shadow: 0 0 80px rgba(0, 0, 0, 0.9);
+}
